@@ -1,0 +1,6 @@
+[run]
+branch = True
+include =
+    rename_mina/*
+omit =
+    */__init__.py/*
