@@ -1,6 +1,6 @@
 [run]
 branch = True
 include =
-    rename_mina/*
+    mina_re/*
 omit =
     */__init__.py/*

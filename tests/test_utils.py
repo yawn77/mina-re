@@ -1,4 +1,4 @@
-from rename_mina.utils import get_common_prefix
+from mina_re.utils import get_common_prefix
 
 
 def test_default() -> None:

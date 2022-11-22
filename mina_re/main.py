@@ -1,9 +1,9 @@
 from os import rename, walk
 from os.path import join, split
 from pathlib import Path
-from rename_mina.item_to_rename import ItemToRename
+from mina_re.item_to_rename import ItemToRename
 
-from rename_mina.utils import get_common_prefix
+from mina_re.utils import get_common_prefix
 
 
 ignore = ['Thumbs.db', '.DS_Store']
@@ -31,7 +31,7 @@ def rename_action() -> None:
         item.set_new_name_by_prefix(new_name, common_prefix)
         print(item)
 
-    if input('apply? {y/n) ') == 'y':
+    if input('apply? (y/n) ') == 'y':
         print('rename')
         for item in items:
             item.rename()
