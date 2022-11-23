@@ -1,5 +1,4 @@
 from os import rename
-from os.path import join
 from pathlib import Path
 from typing import Optional
 
@@ -8,15 +7,29 @@ class ItemToRename:
 
     def __init__(self, path: Path) -> None:
         self.name: str = path.stem
-        self.ext: str = path.suffix
+        self.suffix: str = path.suffix
         self.path: Path = path.parents[0]
         self.new_name: Optional[str] = None
 
-    def set_new_name_by_prefix(self, new_name: str, prefix: str) -> None:
-        self.new_name = f'{new_name}{self.name[len(prefix):]}{self.ext}'
+    def change_prefix(self, old_prefix: str, new_prefix: str) -> None:
+        if not self.name.startswith(old_prefix):
+            raise ValueError(f'file name "{self.name}" does not start with prefix "{old_prefix}"')
+
+        self.new_name = f'{new_prefix}{self.name[len(old_prefix):]}'
 
     def rename(self) -> None:
-        rename(Path(self.path) / f'{self.name}{self.ext}', Path(self.path) / f'{self.new_name}')
+        path = Path(self.path) / f'{self.name}{self.suffix}'
+
+        if not path.exists():
+            raise FileNotFoundError(f'cannot find "{str(path)}" to rename it')
+
+        if self.new_name:
+            rename(path, Path(self.path) / f'{self.new_name}{self.suffix}')
 
     def __str__(self) -> str:
-        return f'{join(self.path, self.name)}{self.ext} -> {self.new_name}'
+        s = str(self.path / f"{self.name}{self.suffix}")
+
+        if self.new_name:
+            s = f'{s} -> {self.new_name}{self.suffix}'
+
+        return s
