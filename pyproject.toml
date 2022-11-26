@@ -28,6 +28,7 @@ flake8 = "^5.0.4"
 mypy = "^0.991"
 tox = "^3.27.1"
 coverage = "^6.5.0"
+autopep8 = "^2.0.0"
 
 [build-system]
 requires = ["poetry-core"]

@@ -1,6 +1,6 @@
 from pathlib import Path
 from mina_re.item_to_rename import ItemToRename
-from mina_re.utils import get_common_prefix
+from mina_re.rename import get_common_prefix
 
 
 def test_empty_list() -> None:

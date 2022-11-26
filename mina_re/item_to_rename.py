@@ -12,7 +12,7 @@ class ItemToRename:
         self.new_name: Optional[str] = None
 
     def change_prefix(self, old_prefix: str, new_prefix: str) -> None:
-        if not self.name.startswith(old_prefix):
+        if not self.name.lower().startswith(old_prefix.lower()):
             raise ValueError(f'file name "{self.name}" does not start with prefix "{old_prefix}"')
 
         self.new_name = f'{new_prefix}{self.name[len(old_prefix):]}'
