@@ -1,11 +1,11 @@
 [tool.poetry]
-name = "rename-mina"
+name = "mina-re"
 version = "0.1.0"
 description = "Renaming tool."
 authors = ["yawn <102347321+yawn77@users.noreply.github.com>"]
 license = "MIT"
 readme = "README.md"
-repository = "https://github.com/yawn77/rename-mina"
+repository = "https://github.com/yawn77/mina-re"
 classifiers = [
   "Programming Language :: Python :: 3.7",
   "Programming Language :: Python :: 3.8",
@@ -16,7 +16,7 @@ classifiers = [
   "Operating System :: OS Independent",
   "Typing :: Typed",
 ]
-packages = [{include = "rename_mina"}]
+packages = [{include = "mina_re"}]
 
 [tool.poetry.dependencies]
 python = "^3.7"
@@ -28,6 +28,7 @@ flake8 = "^5.0.4"
 mypy = "^0.991"
 tox = "^3.27.1"
 coverage = "^6.5.0"
+autopep8 = "^2.0.0"
 
 [build-system]
 requires = ["poetry-core"]
